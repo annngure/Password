@@ -1,17 +1,20 @@
 class User:
-    pass
-    class that generate new instances of User
-    user_list=[] #list to be stored here
+ '''
+ #create generations of new users
+ 
+ '''
+ user_list=[] #empty arry to save a list of users
 
-    def _init_ (self,username,password):
-        pass
-        save user credentials into user_list for login
-        self.username=username
-        self.password=password
+ def__init__(self,user_name,password):
+     self.user_name=user_name  
+     self.password=password
 
-        def delete_user(self):
-            pass
-            delete a user account
-            pass 
-            User.user_list.remove(self)
-            
+#save new user objects in the user_list
+def save_user(self):
+    User.user_list.append(self)
+#append method is used to add a new user
+
+#delete user account
+def delete_user(self):
+    User.user_list.remove(self)
+    
