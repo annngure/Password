@@ -21,3 +21,38 @@ def save_cred(self):
 #delete function
 def delete_cred(self)
 Credentials.cred_list.remove(self)
+
+#used to find credentials.....@classmethod ..inbuild function to return class.
+@classmethod
+    def find_account(cls, account):
+        '''
+        search for accounts
+        '''
+        for cred in cls.cred_list:
+            if cred.account == account:
+                return cred    
+
+#for confirmation
+@classmethod
+    def cred_exists(cls, account):
+        '''
+        confirm a class actually exists
+        '''
+        for cred in cls.cred_list:
+            if cred.account == account:
+                return True
+        return False  
+
+#display
+@classmethod
+    def display_cred(cls):
+        '''
+        method that returns all credentials
+        '''
+        return cls.cred_list                
+
+#copying password
+@classmethod
+    def copy_passlock(cls, passlock):
+            find_account = Credentials.find_account(passlock)
+            pyperclip.copy(find_account.passlock)    
