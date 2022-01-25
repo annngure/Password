@@ -1,7 +1,6 @@
-# import radom
-# import pyperclip
-# from user import User
-# from credentials import Credentials
+
+from user import User
+#from credentials import Credentials
 
 usernames=[]
 passwords=[]
@@ -20,11 +19,18 @@ def login():
     else:
        print("Incorrect!")
 
+def main():
+     print("")
+    
 while True:
-  account_ready= input("Select : a:Sign Up  b:Login  c:Exit ")
-  if account_ready =="a":
+    account_ready= input("Select : a:Sign Up  b:Login  c:Exit ")
+    if account_ready =="a":
      register()
-  if account_ready=="b":
+    if account_ready=="b":
      login()
-  if account_ready=="c":
+    if account_ready=="c":
       break
+    # elif:
+    # print("Invalid ,Select : a:Sign Up  b:Login  c:Exit!")
+    if __name__=='__main__':
+      main()

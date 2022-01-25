@@ -1,13 +1,13 @@
 class User:
  '''
- #create generations of new users
+ create generations of new users
  
  '''
  user_list=[] #empty arry to save a list of users
 
- def__init__(self,user_name,password):
-     self.user_name=user_name  
-     self.password=password
+ def User(self,usernames,passwords):
+    self.usernames=usernames  
+    self.passwords=passwords
 
 #save new user objects in the user_list
 def save_user(self):
@@ -17,4 +17,14 @@ def save_user(self):
 #delete user account
 def delete_user(self):
     User.user_list.remove(self)
+
+@classmethod
+def find_user(find,usernames):
+    '''
+    find username using search terms
+    '''
+    for user in find .user_list:
+        if user.usernames == usernames:
+
+           return user
     
