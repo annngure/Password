@@ -1,6 +1,5 @@
 import unittest
 from credentials import Credentials
-import pyperclip
 
 class TestCredentials(unittest.TestCase):
      
@@ -8,7 +7,7 @@ class TestCredentials(unittest.TestCase):
          '''
          setup before a test is run
          '''
-         self.new_cred= Credentials("Gmail","annngurewanjiku@gmail.com","12345")
+         self.new_cred= Credentials("Ann","12345","annngurewanjiku@gmail.com")
 
     def tearDown(self):
         '''
@@ -20,9 +19,10 @@ class TestCredentials(unittest.TestCase):
         '''
         check if initialization is done as expected
         '''
-        self.assertEqual(self.new_cred.account,"Gmail")
+        self.assertEqual(self.new_cred.username,"Ann")
+         self.assertEqual(self.new_cred.passlock,"12345")
         self.assertEqual(self.new_cred.email,"annngurewanjiku@gmail.com")
-        self.assertEqual(self.new_cred.passlock,"12345")
+       
 
     def test_save_credentials(self):
         '''
@@ -36,7 +36,7 @@ class TestCredentials(unittest.TestCase):
         check if credentials test can be delete
         '''
         self.new_cred.save_cred()
-        test_cred=Credentials("Facebook","testuser","password")
+        test_cred=Credentials("Name","password","testuser")
         test_cred.save_cred()
         self.new_cred.delete_cred()
         self.assertEqual(len(Credentials.cred_list),1)
@@ -46,10 +46,10 @@ class TestCredentials(unittest.TestCase):
         test if credentials can be searched for
         '''
         self.new_cred.save_cred()
-        test_cred=Credentials("Facebook","testuser","password")
+        test_cred=Credentials("Name","password","testuser)
         test_cred.save_cred()
-        find_cred=Credentials.find_account("Facebook")
-        self.assertEqual(find_cred.account,test_cred.account)
+        find_cred=Credentials.find_usernames("Name")
+        self.assertEqual(find_cred.usernames,test_cred.usernames)
 
     def test_confirm_cred_exists(self):
         '''
@@ -57,19 +57,7 @@ class TestCredentials(unittest.TestCase):
         '''
         self.new_cred.save_cred()
         test_cred.save_cred()
-        cred_exists= Credentials.cred_exists("Facebook")
+        cred_exists= Credentials.cred_exists("Name")
         self.assertTrue(cred_exists)
     
-    def test_dispaly_credentials(self):
-        '''
-        if all credentials can be displayed
-        '''
-        self.assertEqual(Credentials.dispaly_cred(),Credentials.cred_list)
-
-    def test_copy_password(self):
-        '''
-        test if password can be copied
-        '''
-        self.new_cred.save_cred()
-        Credentials.copy_passlock("12345")
-        self.assertEqual(self.new_cred.passlock,pyperclip.paste())
+    d
