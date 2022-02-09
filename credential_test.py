@@ -1,14 +1,14 @@
 import unittest
-from credentials import Credentials
+from credential import Credentials
 
 class TestCredentials(unittest.TestCase):
-     
-     def setUp(self):
+    
+    def setUp(self):
          '''
          setup before a test is run
          '''
          self.new_cred= Credentials("Ann","12345","annngurewanjiku@gmail.com")
-
+         
     def tearDown(self):
         '''
         clear list before test is run
@@ -20,7 +20,7 @@ class TestCredentials(unittest.TestCase):
         check if initialization is done as expected
         '''
         self.assertEqual(self.new_cred.username,"Ann")
-         self.assertEqual(self.new_cred.passlock,"12345")
+        self.assertEqual(self.new_cred.passlock,"12345")
         self.assertEqual(self.new_cred.email,"annngurewanjiku@gmail.com")
        
 
@@ -46,7 +46,7 @@ class TestCredentials(unittest.TestCase):
         test if credentials can be searched for
         '''
         self.new_cred.save_cred()
-        test_cred=Credentials("Name","password","testuser)
+        test_cred=Credentials("Name","password","testuser")
         test_cred.save_cred()
         find_cred=Credentials.find_usernames("Name")
         self.assertEqual(find_cred.usernames,test_cred.usernames)
@@ -60,4 +60,5 @@ class TestCredentials(unittest.TestCase):
         cred_exists= Credentials.cred_exists("Name")
         self.assertTrue(cred_exists)
     
-    d
+if __name__ =="__main__":
+    unittest.main()

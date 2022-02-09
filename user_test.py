@@ -19,17 +19,17 @@ class TestUser(unittest.TestCase):
         check if user class is initialized
         '''
         self.assertEqual(self.new_cred.username,"Ann")
-         self.assertEqual(self.new_cred.passlock,"12345")
+        self.assertEqual(self.new_cred.passlock,"12345")
         self.assertEqual(self.new_cred.email,"annngurewanjiku@gmail.com")
     
     def test_save_user(self):
         '''
         check if user can be saved in user_list
         '''
-         self.new_user.save_user()
+        self.new_user.save_user()
         self.assertEqual(len(User.user_list),1)
 
-     def test_delete_user(self):
+    def test_delete_user(self):
         '''
         check if user test can be delete
         '''
@@ -44,7 +44,7 @@ class TestUser(unittest.TestCase):
         test if user can be searched for
         '''
         self.new_user.save_user()
-        test_user=User("Name","password","testuser)
+        test_user=User("Name","password","testuser")
         test_user.save_user()
         find_user=User.find_usernames("Name")
         self.assertEqual(find_user.usernames,test_user.usernames)
@@ -58,4 +58,5 @@ class TestUser(unittest.TestCase):
         user_exists= User.user_exists("Name")
         self.assertTrue(user_exists)
     
-   
+if __name__ =="__main__":
+     unittest.main()  
