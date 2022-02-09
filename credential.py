@@ -5,26 +5,28 @@ class Credentials:
  '''
  credential_list=[] #empty arry to save a list of accounts
 
- def __init__(self,accountusernames,passwords):
+def __init__(self,usernames,passwords,account):
     self.usernames=usernames  
     self.passwords=passwords
-
+    self.account=account
 #save new user objects in the user_list
-def save_user(self):
-    User.user_list.append(self)
+def save_cred(self):
+    Credentials.credential_list.append(self)
+    
 #append method is used to add a new user
 
-#delete user account
-def delete_user(self):
-    User.user_list.remove(self)
+
+#delete credential account
+def delete_cred(self):
+     Credentials.credential_list.remove(self)
 
 @classmethod
-def find_user(find,usernames):
+def find_user(find,account):
     '''
     find username using search terms
     '''
-    for user in find .user_list:
-        if user.usernames == usernames:
+    for credential in find .credential_list:
+        if credential.account == account:
 
-           return user
+           return credential
     
